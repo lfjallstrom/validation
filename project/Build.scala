@@ -5,8 +5,12 @@ object ValidationBuild extends Build {
 
   val librarySettings = Seq(
   	organization := "com.github.lfjallstrom",
-    version := "0.0.1",
+    version := "1.0.0",
     scalaVersion := "2.10.3"
+  )
+
+  val publishSettings = Seq(
+    publishTo := Some(Resolver.file("file", Path.userHome / "github" / "maven" / "releases"))
   )
 
   val dependencies = Seq(
@@ -22,4 +26,5 @@ object ValidationBuild extends Build {
     .settings(librarySettings:_*)
     .settings(sources:_*)
     .settings(libraryDependencies ++= dependencies)
+    .settings(publishSettings:_*)
 }
